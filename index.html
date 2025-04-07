@@ -3,12 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name - Portfolio</title>
+  <title>Tyler Kilper - Portfolio</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
     header, section, footer { padding: 20px; }
     header { background-color: #333; color: white; }
-    nav a { color: white; margin-right: 15px; text-decoration: none; }
+    nav a {
+      color: white;
+      margin-right: 15px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .tab-content { display: none; }
+    .active { display: block; }
     .project { margin-bottom: 20px; }
   </style>
 </head>
@@ -17,16 +24,16 @@
   <!-- Header -->
   <header>
     <h1>Tyler Kilper</h1>
-    <p>Electrical Engeineer | Missouri S&T</p>
+    <p>Electrical Engineer B.S. | Missouri S&T</p>
     <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
+      <a onclick="showTab('about')">About</a>
+      <a onclick="showTab('projects')">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- About Section -->
-  <section id="about">
+  <!-- Tab Sections -->
+  <section id="about" class="tab-content active">
     <h2>About Me</h2>
     <p>
       Brief introduction about who you are, your background, interests,
@@ -34,8 +41,7 @@
     </p>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects">
+  <section id="projects" class="tab-content">
     <h2>Projects</h2>
 
     <div class="project">
@@ -49,11 +55,22 @@
       <p>Another brief description. You can add screenshots or links here too.</p>
       <a href="#">View Project</a>
     </div>
-
-    <!-- Add more project entries as needed -->
   </section>
 
   <!-- Contact Section -->
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:you@example.com">
+    <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+  </section>
+
+  <!-- Tab Switching Script -->
+  <script>
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
